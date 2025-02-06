@@ -1,0 +1,36 @@
+# Site settings
+title: 曠的個人網頁
+description: '曠的個人網頁'
+url: 'https://dsif2012.github.io'
+baseurl: ''
+profilepic: '/images/pic.jpg'
+bkimage: '/images/back.jpg'
+# google_analytics: UA-XXXXXX-X
+# font_awesome: 'XXXXXXXXXX.js'
+
+author:
+  name: '曠的個人網頁'
+  email: dsif2012@gmail.com 
+  github_username:  dsif2012
+  youtube_channel:  '@admin-dsif2012'
+
+# Build settings
+destination: _site
+markdown: kramdown
+highlighter: rouge
+
+# 添加 permalink 設定
+permalink: /:categories/:title/
+
+sass:
+    sass_dir: _sass
+    style: compressed
+
+kramdown:
+  # use Github Flavored Markdown
+  input: GFM
+  # do not replace newlines by <br>s
+  hard_wrap: false
+
+#plugins: ['jekyll-paginate']
+exclude: ['README.md', 'screenshot-overview.png']
