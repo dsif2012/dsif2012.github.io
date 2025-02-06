@@ -81,7 +81,7 @@ bundle exec jekyll serve
    git push
    ```
 3. 等個幾分鐘，就可以用 `username.github.io` 看到網站了
-
+4. 如果要更新網站，重複上面的動作即可，"更新網站"這個是你這次更新的內容，有空可以修改一下
 
 ## 參考資源
 - [Jekyll 官方文件](https://jekyllrb.com/docs/)
