@@ -1,0 +1,180 @@
+---
+layout: default
+robots: noindex
+---
+
+<!--<div class="main-post-list">-->
+
+  <!-- Blog Section -->
+  <div id="blog" class="blog-section" style="display: none;">
+    <div class="blog-container">
+      <!-- 主要內容區 -->
+      <div class="blog-main">
+        <ul class="blog-list">
+          {% for blog in site.data.blogs %}
+            <li class="blog-item" 
+                data-category="{{ blog.category }}" 
+                data-tags='{{ blog.tags | jsonify }}'>
+              <div class="blog-panel">
+                {% if blog.image %}
+                <div class="blog-image">
+                  <img src="{{ blog.image | prepend: site.baseurl }}" alt="{{ blog.title }}">
+                </div>
+                {% endif %}
+                <div class="blog-heading">
+                  <h4><a href="{{ blog.url | prepend: site.baseurl }}">{{ blog.title }}</a></h4>
+                  <p class="blog-date">{{ blog.date }}</p>
+                </div>
+                <div class="blog-body">
+                  {{ blog.excerpt }}
+                  <a href="{{ blog.url | prepend: site.baseurl }}" class="read-more">繼續閱讀</a>
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      
+      <!-- 側邊欄 -->
+      <div class="blog-sidebar">
+        <!-- 標籤 -->
+        <div class="sidebar-section">
+          <div class="section-header">
+            <h3>標籤</h3>
+            <button onclick="resetFilter()" class="reset-filter" title="重置篩選">
+              <i class="fas fa-redo-alt"></i>
+            </button>
+          </div>
+          <div class="tag-cloud">
+            {% assign tags = site.data.blogs | map: "tags" | flatten | uniq %}
+            {% for tag in tags %}
+              <a href="javascript:void(0)" 
+                 class="tag-link" 
+                 data-tag="{{ tag }}"
+                 onclick="filterByTag('{{ tag }}')">
+                {{ tag }}
+              </a>
+            {% endfor %}
+          </div>
+        </div>
+        
+        <!-- 最新文章 -->
+        <div class="sidebar-section">
+          <h3>最新文章</h3>
+          <ul class="recent-posts">
+            {% for blog in site.data.blogs limit:5 %}
+              <li>
+                <a href="{{ blog.url | prepend: site.baseurl }}">{{ blog.title }}</a>
+                <span class="post-date">{{ blog.date }}</span>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Projects Section -->
+  <div id="projects" class="projects-section" style="display: none;">
+    <ul class="timeline">
+      {% for project in site.data.projects %}
+        <li class="timeline-inverted">
+          <div class="timeline-image">
+            <img class="img-me" src="{{ project.img | prepend: site.baseurl }}" alt="">
+          </div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4><a href="https://github.com/{{ project.gh_user }}/{{ project.repo }}" target="_blank">{{ project.name }}</a></h4>
+            </div>
+            <div class="timeline-body">
+              {% if project.desc %}
+                {{ project.desc | markdownify }}
+              {% else %}
+              <div repotext="{{ project.repo }}">
+                <span class="desc"></div>
+              </div>
+              {% endif %}
+              <div user="{{ project.gh_user }}" repo="{{ project.repo }}" class="ghbtn" style="margin-top: 10px;">
+                <a target="_blank" href="https://github.com/{{ project.gh_user }}/{{ project.repo }}/stargazers"><i class="fa fa-star"></i><span class="star"> ...</span></a>&emsp;&emsp;
+                <a target="_blank" href="https://github.com/{{ project.gh_user }}/{{ project.repo }}/network"><i class="fa fa-code-fork"></i><span class="fork"> ...</span></a>&emsp;&emsp;
+                <a target="_blank" href="https://github.com/{{ project.gh_user }}/{{ project.repo }}/watchers"><i class="far fa-eye"></i><span class="watchers"> ...</span></a>
+                <div style="height: 10px;"></div>
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+      <!--
+      <li class="timeline-inverted">
+        <div class="timeline-image">
+          <img class="user-image" src="{{site.baseurl}}{{ site.timeline-img }}" alt="">
+        </div>
+      </li> -->
+    </ul>
+  </div>
+
+<!--</div>-->
+
+<script>
+// 處理頁面切換
+document.addEventListener('DOMContentLoaded', function() {
+  // 獲取所有區塊
+  const blogSection = document.getElementById('blog');
+  const projectsSection = document.getElementById('projects');
+  
+  // 根據 URL hash 顯示對應區塊
+  function showSection() {
+    const hash = window.location.hash || '#projects';  // 預設顯示 projects
+    
+    // 隱藏所有區塊
+    blogSection.style.display = 'none';
+    projectsSection.style.display = 'none';
+    
+    // 顯示對應區塊
+    if (hash === '#blog') {
+      blogSection.style.display = 'block';
+    } else if (hash === '#projects') {
+      projectsSection.style.display = 'block';
+    }
+  }
+  
+  // 監聽 hash 變化
+  window.addEventListener('hashchange', showSection);
+  
+  // 初始顯示
+  showSection();
+});
+
+// 過濾文章功能
+function filterByCategory(category) {
+  const articles = document.querySelectorAll('.blog-item');
+  articles.forEach(article => {
+    const articleCategory = article.getAttribute('data-category');
+    if (category === 'all' || articleCategory === category) {
+      article.style.display = 'block';
+    } else {
+      article.style.display = 'none';
+    }
+  });
+}
+
+function filterByTag(tag) {
+  const articles = document.querySelectorAll('.blog-item');
+  articles.forEach(article => {
+    const articleTags = JSON.parse(article.getAttribute('data-tags') || '[]');
+    if (tag === 'all' || articleTags.includes(tag)) {
+      article.style.display = 'block';
+    } else {
+      article.style.display = 'none';
+    }
+  });
+}
+
+// 添加重置過濾器的功能
+function resetFilter() {
+  const articles = document.querySelectorAll('.blog-item');
+  articles.forEach(article => {
+    article.style.display = 'block';
+  });
+}
+</script>
+

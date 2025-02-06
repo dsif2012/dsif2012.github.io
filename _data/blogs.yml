@@ -1,0 +1,8 @@
+- title: "個人網頁建置"
+  date: "2025-02-06"
+  excerpt: "這是個人網頁建置的過程"
+  url: "/blog/personal-website"
+  image: "/images/back.jpg"  # 暫時註釋掉
+  tags: ["projects"]
+  category: "技術"
+
