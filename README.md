@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Jekyll-Uno with Projects as Timeline
 A Jekyll Theme, based on the Uno-Theme with a list of projects as Timeline.
 
@@ -34,3 +35,7 @@ Access via: [http://localhost:4000/](http://localhost:4000/)
 * using [github_api.js](https://github.com/jarrekk/Jalpc/blob/master/static/js/github_api.js) from [Jalpc.](https://github.com/jarrekk/Jalpc), but:
   * changed the GitHub-URL for using with persons and organisations
   * added watchers number
+=======
+# dsif2012.github.io
+My personal website
+>>>>>>> 70e20f003bad9f2fb210ef79d75db64d4bcb5a43
