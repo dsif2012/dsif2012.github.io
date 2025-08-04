@@ -46,7 +46,7 @@
   <meta name="msapplication-TileImage" content="/images/favicons/mstile-144x144.png">
   <meta name="theme-color" content="#ffffff">
   
-  <link rel="stylesheet" href="/css/main.css?1738831437558300800">
+  <link rel="stylesheet" href="/css/main.css?1754292419196270700">
   <link rel="canonical" href="http://localhost:4000/blog/personal-website/">
   <link rel="alternate" type="application/rss+xml" title="曠的個人網頁" href="/feed.xml">
   <script src="https://kit.fontawesome.com/" crossorigin="anonymous"></script>
@@ -161,9 +161,9 @@
 
     <div class="post-content">
       <h2 id="介紹">介紹</h2>
-<p>　　身為一名軟體工程師，GitHub幾乎是每個人都會使用的工具。然而，懶惰如我一直以來都不太願意花時間管理，在絞盡腦汁跟該死的bug奮鬥完，還要處理git等事情，也導致我的github一直都是一團亂。隨著時間的推移，快到30歲的我覺得是時候整理一下自己的作品了。因此，我決定利用這個機會，在GitHub Pages上建立一個個人網站，這篇文章將記錄我建置個人網頁的完整過程。</p>
+<p>　　身為一名軟體工程師，GitHub幾乎是每個人都會使用的工具。然而，懶惰如我一直以來都不太願意花時間管理，在絞盡腦汁跟該死的bug奮鬥完，還要處理git等事情，也導致我的github一直都是一團亂。隨著時間的推移，快到30歲的我覺得是時候整理一下自己的作品了。因此，我決定利用這個機會，在GitHub Pages上建立個人網站，這篇文章將記錄我建置個人網頁的完整過程。</p>
 
-<p>　　早在幾年前我就有看到相關文章，使用github.io來建立個人網站，但是當時我建完以後就放著了。直到最近，我覺得是時候整理一下自己的作品了，所以就打算重新建置個人網頁與整理我的github。問了一下chatgpt，發現現在github.io使用的技術還是jekyll還有沒用過的hugo。考慮到之前用過jekyll，所以就摸摸看hugo。不知道是啥問題，我選的theme一直安裝不起來，其他theme也沒有看到喜歡的，所以最後還是決定使用jekyll。</p>
+<p>　　早在幾年前我就有看到相關文章，使用github.io來建立個人網站，但是當時我建完以後就放著了。直到最近，我覺得是時候整理一下自己的作品了，所以就打算重新建置個人網頁與整理我的github。問了一下chatgpt，發現現在github.io使用的技術還是jekyll和沒用過的hugo。考慮到之前用過jekyll，所以就摸摸看hugo。不知道是啥問題，我選的theme一直安裝不起來，其他theme也沒有看到喜歡的，所以最後還是決定使用jekyll。</p>
 
 <h2 id="使用技術與工具">使用技術與工具</h2>
 <ul>
@@ -220,10 +220,12 @@
 
 <h3 id="5-使用-cursor-修改主題">5. 使用 cursor 修改主題</h3>
 <p>這邊我遇到不少問題，而且我以前都沒有認真處理過jekyll，所以這邊我花一些時間。但不得不說cursor實在是太好用了，幫我節省了超大量的時間。
-我主要修改了原始theme中的這些內容:
-1.需要修改的各項資料(姓名，說明，圖片，連結…)大部分都在<code class="language-plaintext highlighter-rouge">_config.yml</code>中
-2.我個人喜歡深色系的，所以直接叫cursor弄了個全局深色模式，再稍微修改一下就行
-3.我發現他的blog系統是額外的網址，本身的blog系統已經刪除了，所以我再叫cursor幫我生成一個新的blog系統，雖然有點簡陋，但至少能支援markdown語法還能根據tag搜尋</p>
+我主要修改了原始theme中的這些內容:</p>
+<ol>
+  <li>需要修改的各項資料(姓名，說明，圖片，連結…)大部分都在<code class="language-plaintext highlighter-rouge">_config.yml</code>中</li>
+  <li>我個人喜歡深色系的，所以直接叫cursor弄了個全局深色模式，再稍微修改一下就行</li>
+  <li>我發現他的blog系統是額外的網址，本身的blog系統已經刪除了，所以我再叫cursor幫我生成一個新的blog系統，雖然有點簡陋，但至少能支援markdown語法還能根據tag搜尋</li>
+</ol>
 
 <h3 id="6-本地預覽">6. 本地預覽</h3>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">exec </span>jekyll serve
@@ -243,6 +245,9 @@ git push
   <li>如果要更新網站，重複上面的動作即可，”更新網站”這個是你這次更新的內容，有空可以修改一下</li>
 </ol>
 
+<h2 id="額外說明">額外說明</h2>
+<p>1.網頁上面的圖片在/images/favicons裡面，但要多種不同的大小，有點麻煩，我就不改了
+2.如果你有在github網頁上面更動過專案，記得要先拉取下來，不然推送會出錯</p>
 <h2 id="參考資源">參考資源</h2>
 <ul>
   <li><a href="https://jekyllrb.com/docs/">Jekyll 官方文件</a></li>
@@ -266,8 +271,8 @@ git push
 </footer>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/js/main.js?1738831437558300800"></script>
-<script type="text/javascript" src="/js/github_api.js?1738831437558300800"></script>
+<script type="text/javascript" src="/js/main.js?1754292419196270700"></script>
+<script type="text/javascript" src="/js/github_api.js?1754292419196270700"></script>
 
     </div>
   </body>
