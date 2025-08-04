@@ -118,10 +118,10 @@ class GitHubAPI {
     $(`div[repotext='${repoName}']`).find("span.desc").html(data.description || '無描述');
   }
 
-  // 設置loading狀態
+  // 設置loading狀態 - 簡化版本
   setLoadingState(element, isLoading) {
     if (isLoading) {
-      element.find("span.star, span.fork, span.watchers").html('&nbsp;<i class="fas fa-spinner fa-spin"></i>');
+      element.find("span.star, span.fork, span.watchers").html('&nbsp;...');
     }
   }
 

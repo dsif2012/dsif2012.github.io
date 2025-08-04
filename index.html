@@ -6,7 +6,7 @@ robots: noindex
 <!--<div class="main-post-list">-->
 
   <!-- Blog Section -->
-  <div id="blog" class="blog-section" style="display: none;">
+  <div id="blog" class="blog-section section-hidden">
     <div class="blog-container">
       <!-- 主要內容區 -->
       <div class="blog-main">
@@ -75,7 +75,7 @@ robots: noindex
   </div>
 
   <!-- Projects Section -->
-  <div id="projects" class="projects-section" style="display: none;">
+  <div id="projects" class="projects-section section-hidden">
     <ul class="timeline">
       {% for project in site.data.projects %}
         <li class="timeline-inverted">
@@ -130,12 +130,11 @@ document.addEventListener('DOMContentLoaded', function() {
       transition: opacity 0.3s ease-in-out;
     }
     .section-hidden {
-      opacity: 0;
       display: none !important;
     }
     .section-visible {
       opacity: 1;
-      display: block;
+      display: block !important;
     }
     .section-fading {
       opacity: 0;
@@ -182,56 +181,54 @@ document.addEventListener('DOMContentLoaded', function() {
   `;
   document.head.appendChild(style);
   
-  // 添加loading指示器
-  const loadingIndicator = document.createElement('div');
-  loadingIndicator.className = 'loading-indicator';
-  loadingIndicator.innerHTML = '<div class="spinner"></div>';
-  document.body.appendChild(loadingIndicator);
+  // 移除全局loading指示器（不需要了）
   
   // 為區塊添加轉場類
   blogSection.classList.add('section-transition');
   projectsSection.classList.add('section-transition');
   
-  // 平滑切換函數
+  // 簡化的切換函數
   function smoothTransition(targetSection) {
     if (isTransitioning || currentSection === targetSection) return;
     
     isTransitioning = true;
-    loadingIndicator.style.display = 'block';
     
-    // 如果有當前區塊，先淡出
-    if (currentSection) {
-      currentSection.classList.add('section-fading');
-      
-      setTimeout(() => {
-        currentSection.classList.add('section-hidden');
-        currentSection.classList.remove('section-visible', 'section-fading');
-        showNewSection(targetSection);
-      }, 300);
-    } else {
-      showNewSection(targetSection);
-    }
-  }
-  
-  function showNewSection(targetSection) {
-    // 顯示新區塊
-    targetSection.classList.remove('section-hidden');
-    targetSection.classList.add('section-visible');
+    // 隱藏所有區塊
+    blogSection.classList.add('section-hidden');
+    projectsSection.classList.add('section-hidden');
     
-    // 添加fadeIn動畫
-    targetSection.classList.add('animated', 'fadeIn');
-    
+    // 顯示目標區塊
     setTimeout(() => {
-      targetSection.classList.remove('animated', 'fadeIn');
+      targetSection.classList.remove('section-hidden');
+      targetSection.classList.add('section-visible');
       currentSection = targetSection;
       isTransitioning = false;
-      loadingIndicator.style.display = 'none';
-    }, 500);
+    }, 200);
   }
   
   // 根據 URL hash 顯示對應區塊
   function showSection() {
     const hash = window.location.hash || '#projects';  // 預設顯示 projects
+    
+    // 先隱藏所有區塊
+    blogSection.classList.add('section-hidden');
+    projectsSection.classList.add('section-hidden');
+    
+    // 顯示對應區塊
+    if (hash === '#blog') {
+      blogSection.classList.remove('section-hidden');
+      blogSection.classList.add('section-visible');
+      currentSection = blogSection;
+    } else if (hash === '#projects') {
+      projectsSection.classList.remove('section-hidden');
+      projectsSection.classList.add('section-visible');
+      currentSection = projectsSection;
+    }
+  }
+  
+  // 監聽 hash 變化
+  window.addEventListener('hashchange', function() {
+    const hash = window.location.hash || '#projects';
     
     let targetSection;
     if (hash === '#blog') {
@@ -243,10 +240,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (targetSection) {
       smoothTransition(targetSection);
     }
-  }
-  
-  // 監聽 hash 變化
-  window.addEventListener('hashchange', showSection);
+  });
   
   // 初始顯示
   showSection();
