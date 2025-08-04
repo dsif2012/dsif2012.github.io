@@ -48,7 +48,7 @@
   <meta name="msapplication-TileImage" content="/images/favicons/mstile-144x144.png">
   <meta name="theme-color" content="#ffffff">
   
-  <link rel="stylesheet" href="/css/main.css?1754292700134117900">
+  <link rel="stylesheet" href="/css/main.css?1754292941987729800">
   <link rel="canonical" href="http://localhost:4000/">
   <link rel="alternate" type="application/rss+xml" title="曠的個人網頁" href="/feed.xml">
   <script src="https://kit.fontawesome.com/" crossorigin="anonymous"></script>
@@ -158,6 +158,26 @@
         <ul class="blog-list">
           
             <li class="blog-item" 
+                data-category="創新" 
+                data-tags='["AI","創業","實驗室"]'>
+              <div class="blog-panel">
+                
+                <div class="blog-image">
+                  <img src="/images/back.jpg" alt="AI實驗室：一人AI公司的探索之路">
+                </div>
+                
+                <div class="blog-heading">
+                  <h4><a href="/blog/ai-laboratory">AI實驗室：一人AI公司的探索之路</a></h4>
+                  <p class="blog-date">2025-02-06</p>
+                </div>
+                <div class="blog-body">
+                  開啟AI實驗室，探索一人AI公司的可能性，開發各種創新專案與平台
+                  <a href="/blog/ai-laboratory" class="read-more">繼續閱讀</a>
+                </div>
+              </div>
+            </li>
+          
+            <li class="blog-item" 
                 data-category="技術" 
                 data-tags='["projects"]'>
               <div class="blog-panel">
@@ -195,6 +215,27 @@
             
               <a href="javascript:void(0)" 
                  class="tag-link" 
+                 data-tag="AI"
+                 onclick="filterByTag('AI')">
+                AI
+              </a>
+            
+              <a href="javascript:void(0)" 
+                 class="tag-link" 
+                 data-tag="創業"
+                 onclick="filterByTag('創業')">
+                創業
+              </a>
+            
+              <a href="javascript:void(0)" 
+                 class="tag-link" 
+                 data-tag="實驗室"
+                 onclick="filterByTag('實驗室')">
+                實驗室
+              </a>
+            
+              <a href="javascript:void(0)" 
+                 class="tag-link" 
                  data-tag="projects"
                  onclick="filterByTag('projects')">
                 projects
@@ -207,6 +248,11 @@
         <div class="sidebar-section">
           <h3>最新文章</h3>
           <ul class="recent-posts">
+            
+              <li>
+                <a href="/blog/ai-laboratory">AI實驗室：一人AI公司的探索之路</a>
+                <span class="post-date">2025-02-06</span>
+              </li>
             
               <li>
                 <a href="/blog/personal-website">個人網頁建置</a>
@@ -369,8 +415,8 @@ function resetFilter() {
 </footer>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/js/main.js?1754292700134117900"></script>
-<script type="text/javascript" src="/js/github_api.js?1754292700134117900"></script>
+<script type="text/javascript" src="/js/main.js?1754292941987729800"></script>
+<script type="text/javascript" src="/js/github_api.js?1754292941987729800"></script>
 
     </div>
   </body>
