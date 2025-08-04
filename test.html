@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>喬美金服 - 快速借貸服務</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- 自定義樣式 -->
+    <style>
+        :root {
+            --primary-color: #1e3c72;
+            --secondary-color: #2a5298;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            font-family: "Microsoft JhengHei", sans-serif;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 60px 0;
+            margin-bottom: 30px;
+        }
+        
+        .loan-form {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+            padding: 40px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .form-label {
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .btn-submit {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+        }
+        
+        .btn-submit:hover {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            transform: translateY(-2px);
+        }
+        
+        .nav-link {
+            color: white;
+            font-weight: 500;
+            margin: 0 15px;
+        }
+        
+        .nav-link:hover {
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 導航欄 -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background: var(--primary-color);">
+        <div class="container">
+            <a class="navbar-brand" href="#">喬美金服</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">服務特色</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#apply">立即申請</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">客戶評價</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">聯絡我們</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首頁橫幅 -->
+    <div class="header">
+        <div class="container">
+            <h1 class="text-center display-4 mb-4">快速借貸服務</h1>
+            <p class="text-center lead mb-4">簡單、快速、安全的借貸方案</p>
+            <div class="text-center">
+                <a href="#apply" class="btn btn-light btn-lg">立即申請</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 服務特色 -->
+    <section id="features" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">服務特色</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-card text-center">
+                        <i class="fas fa-bolt feature-icon"></i>
+                        <h3>快速審核</h3>
+                        <p>最快30分鐘完成審核，資金即刻入袋</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card text-center">
+                        <i class="fas fa-shield-alt feature-icon"></i>
+                        <h3>安全可靠</h3>
+                        <p>政府合法立案，資料安全有保障</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card text-center">
+                        <i class="fas fa-hand-holding-usd feature-icon"></i>
+                        <h3>彈性方案</h3>
+                        <p>多元還款方案，輕鬆無負擔</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 申請表單 -->
+    <section id="apply" class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="loan-form">
+                        <h2 class="text-center mb-4">個人資料表</h2>
+                        <form id="loanForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">姓名</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="id" class="form-label">身分證字號</label>
+                                    <input type="text" class="form-control" id="id" required>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="phone" class="form-label">手機號碼</label>
+                                    <input type="tel" class="form-control" id="phone" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">電子郵件</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="address" class="form-label">居住地址</label>
+                                <input type="text" class="form-control" id="address" required>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="birthday" class="form-label">出生日期</label>
+                                    <input type="date" class="form-control" id="birthday" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="loanAmount" class="form-label">欲借金額</label>
+                                    <select class="form-select" id="loanAmount" required>
+                                        <option value="">請選擇金額</option>
+                                        <option value="50000">5萬元</option>
+                                        <option value="100000">10萬元</option>
+                                        <option value="200000">20萬元</option>
+                                        <option value="300000">30萬元</option>
+                                        <option value="500000">50萬元</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="purpose" class="form-label">借款用途</label>
+                                <textarea class="form-control" id="purpose" rows="3" required></textarea>
+                            </div>
+
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="agreement" required>
+                                <label class="form-check-label" for="agreement">
+                                    我已閱讀並同意<a href="#" class="text-primary">服務條款</a>和<a href="#" class="text-primary">隱私權政策</a>
+                                </label>
+                            </div>
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-submit">送出申請</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 客戶評價 -->
+    <section id="testimonials" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">客戶評價</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://via.placeholder.com/60" alt="客戶頭像" class="testimonial-avatar">
+                            <div>
+                                <h5 class="mb-0">王小明</h5>
+                                <small class="text-muted">台北市</small>
+                            </div>
+                        </div>
+                        <p class="mb-0">「審核速度快，服務人員態度好，非常推薦！」</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://via.placeholder.com/60" alt="客戶頭像" class="testimonial-avatar">
+                            <div>
+                                <h5 class="mb-0">李小華</h5>
+                                <small class="text-muted">新北市</small>
+                            </div>
+                        </div>
+                        <p class="mb-0">「手續簡單，很快就拿到資金，解決了我的燃眉之急。」</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://via.placeholder.com/60" alt="客戶頭像" class="testimonial-avatar">
+                            <div>
+                                <h5 class="mb-0">張大千</h5>
+                                <small class="text-muted">台中市</small>
+                            </div>
+                        </div>
+                        <p class="mb-0">「利率合理，還款方式彈性，是個值得信賴的選擇。」</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 聯絡我們 -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">聯絡我們</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center">
+                    <div class="mb-4">
+                        <i class="fas fa-phone fa-2x mb-3"></i>
+                        <h4>客服專線</h4>
+                        <p>0800-000-000</p>
+                    </div>
+                    <div class="mb-4">
+                        <i class="fas fa-envelope fa-2x mb-3"></i>
+                        <h4>電子郵件</h4>
+                        <p>service@example.com</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-clock fa-2x mb-3"></i>
+                        <h4>服務時間</h4>
+                        <p>週一至週五 9:00-18:00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>喬美金服</h5>
+                    <p>提供快速、安全、便利的借貸服務</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>© 2024 喬美金服. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 自定義 JavaScript -->
+    <script>
+        document.getElementById('loanForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // 這裡可以加入表單驗證和資料處理邏輯
+            alert('感謝您的申請！我們將盡快與您聯繫。');
+        });
+
+        // 平滑滾動
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
